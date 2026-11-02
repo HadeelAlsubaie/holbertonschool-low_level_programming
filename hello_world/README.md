@@ -4,3 +4,4 @@
 2-assembler: generates the assembly code of a C file in a .s file
 3-name: compiles a C file and creates an executable named cisfun
 4-puts.c: prints a sentence using puts
+5-printf.c: prints a sentence using printf
