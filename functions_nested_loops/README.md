@@ -5,3 +5,4 @@
 3-islower.c: function that checks for lowercase character
 4-isalpha.c: function that checks for alphabetic character
 5-sign.c: function that prints the sign of a number
+7-print_last_digit.c: function that prints the last digit of a number
