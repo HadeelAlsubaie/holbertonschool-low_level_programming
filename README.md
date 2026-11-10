@@ -1,1 +1,1 @@
-# C - Pointers, arrays and strings
+# holbertonschool-low_level_programming
