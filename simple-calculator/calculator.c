@@ -36,17 +36,17 @@ void clear_input(void)
  *
  * Return: 1 if both numbers were read, 0 otherwise
  */
-int read_operands(int *a, int *b)
+int read_operands(double *a, double *b)
 {
 	printf("A: ");
-	if (scanf("%d", a) != 1)
+	if (scanf("%lf", a) != 1)
 	{
 		clear_input();
 		printf("Invalid input\n");
 		return (0);
 	}
 	printf("B: ");
-	if (scanf("%d", b) != 1)
+	if (scanf("%lf", b) != 1)
 	{
 		clear_input();
 		printf("Invalid input\n");
@@ -62,12 +62,12 @@ int read_operands(int *a, int *b)
  */
 void add_numbers(void)
 {
-	int a;
-	int b;
+	double a;
+	double b;
 
 	if (read_operands(&a, &b) == 0)
 		return;
-	printf("Result: %d\n", a + b);
+	printf("Result: %g\n", a + b);
 }
 
 /**
@@ -77,12 +77,12 @@ void add_numbers(void)
  */
 void subtract_numbers(void)
 {
-	int a;
-	int b;
+	double a;
+	double b;
 
 	if (read_operands(&a, &b) == 0)
 		return;
-	printf("Result: %d\n", a - b);
+	printf("Result: %g\n", a - b);
 }
 
 /**
@@ -92,12 +92,32 @@ void subtract_numbers(void)
  */
 void multiply_numbers(void)
 {
-	int a;
-	int b;
+	double a;
+	double b;
 
 	if (read_operands(&a, &b) == 0)
 		return;
-	printf("Result: %d\n", a * b);
+	printf("Result: %g\n", a * b);
+}
+
+/**
+ * divide_numbers - reads A and B and prints A divided by B
+ *
+ * Return: nothing
+ */
+void divide_numbers(void)
+{
+	double a;
+	double b;
+
+	if (read_operands(&a, &b) == 0)
+		return;
+	if (b == 0)
+	{
+		printf("Error: division by zero\n");
+		return;
+	}
+	printf("Result: %g\n", a / b);
 }
 
 /**
@@ -134,7 +154,9 @@ int main(void)
 			subtract_numbers();
 		else if (choice == 3)
 			multiply_numbers();
-		else if (choice < 1 || choice > 4)
+		else if (choice == 4)
+			divide_numbers();
+		else
 			printf("Invalid choice\n");
 	}
 	return (0);
