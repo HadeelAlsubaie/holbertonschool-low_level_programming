@@ -71,6 +71,21 @@ void add_numbers(void)
 }
 
 /**
+ * subtract_numbers - reads A and B and prints A minus B
+ *
+ * Return: nothing
+ */
+void subtract_numbers(void)
+{
+	int a;
+	int b;
+
+	if (read_operands(&a, &b) == 0)
+		return;
+	printf("Result: %d\n", a - b);
+}
+
+/**
  * main - entry point of the simple calculator
  *
  * Return: 0 on success
@@ -100,6 +115,8 @@ int main(void)
 		}
 		if (choice == 1)
 			add_numbers();
+		else if (choice == 2)
+			subtract_numbers();
 		else if (choice < 1 || choice > 4)
 			printf("Invalid choice\n");
 	}
