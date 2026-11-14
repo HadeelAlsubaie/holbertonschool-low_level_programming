@@ -30,6 +30,47 @@ void clear_input(void)
 }
 
 /**
+ * read_operands - asks the user for two numbers A and B
+ * @a: pointer where the first number is stored
+ * @b: pointer where the second number is stored
+ *
+ * Return: 1 if both numbers were read, 0 otherwise
+ */
+int read_operands(int *a, int *b)
+{
+	printf("A: ");
+	if (scanf("%d", a) != 1)
+	{
+		clear_input();
+		printf("Invalid input\n");
+		return (0);
+	}
+	printf("B: ");
+	if (scanf("%d", b) != 1)
+	{
+		clear_input();
+		printf("Invalid input\n");
+		return (0);
+	}
+	return (1);
+}
+
+/**
+ * add_numbers - reads A and B and prints their sum
+ *
+ * Return: nothing
+ */
+void add_numbers(void)
+{
+	int a;
+	int b;
+
+	if (read_operands(&a, &b) == 0)
+		return;
+	printf("Result: %d\n", a + b);
+}
+
+/**
  * main - entry point of the simple calculator
  *
  * Return: 0 on success
@@ -57,7 +98,9 @@ int main(void)
 			printf("Bye!\n");
 			return (0);
 		}
-		if (choice < 1 || choice > 4)
+		if (choice == 1)
+			add_numbers();
+		else if (choice < 1 || choice > 4)
 			printf("Invalid choice\n");
 	}
 	return (0);
